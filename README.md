@@ -26,7 +26,7 @@ duration: 10000
 - Update the release URL with the version you want
 
 ```
-RUN wget -O /tmp/hass-run-release.tar.gz https://github.com/simon-watiau/hass-run/releases/download/v1.0/hass-run-v1.0-linux-amd64.tar.gz && \
+RUN wget -O /tmp/hass-run-release.tar.gz https://github.com/simon-watiau/hass-run/releases/download/v1.0.0/hass-run-v1.0.0-linux-amd64.tar.gz && \
   mkdir /tmp/hass-run-release && \
   tar -xzf /tmp/hass-run-release.tar.gz -C /tmp/hass-run-release && \
   cp /tmp/hass-run-release/hass-run /usr/bin && \
