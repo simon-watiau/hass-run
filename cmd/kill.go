@@ -38,7 +38,7 @@ var killCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(killCmd)
 
-	killCmd.Flags().StringP("host", "f", "", "HomeAssistant host (e.g https://hass.fr)")
+	killCmd.Flags().StringP("host", "h", "", "HomeAssistant host (e.g https://hass.fr)")
 	killCmd.Flags().StringP("bearer", "b", "", "Bearer token for HomeAssistant")
 
 	viper.BindPFlags(killCmd.Flags())
