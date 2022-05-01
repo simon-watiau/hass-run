@@ -34,7 +34,7 @@ var runCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(runCmd)
 
-	runCmd.Flags().StringP("host", "h", "", "HomeAssistant host (e.g https://hass.fr)")
+	runCmd.Flags().StringP("host", "f", "", "HomeAssistant host (e.g https://hass.fr)")
 	runCmd.Flags().StringP("bearer", "b", "", "Bearer token for HomeAssistant")
 	runCmd.Flags().BoolP("nodaemon", "n", false, "Disable daemon for debug")
 

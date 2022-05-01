@@ -26,7 +26,7 @@ duration: 10000
 - Update the release URL with the version you want
 
 ```
-RUN wget -O /tmp/hass-run-release.tar.gz https://github.com/simon-watiau/hass-run/releases/download/v1.0.0/hass-run-v1.0.0-linux-amd64.tar.gz && \
+RUN wget -O /tmp/hass-run-release.tar.gz https://github.com/simon-watiau/hass-run/releases/download/v2.0.0/hass-run-v2.0.0-linux-amd64.tar.gz && \
   mkdir /tmp/hass-run-release && \
   tar -xzf /tmp/hass-run-release.tar.gz -C /tmp/hass-run-release && \
   cp /tmp/hass-run-release/hass-run /usr/bin && \
@@ -58,7 +58,7 @@ bearer: "XXXXXX"
 
 ##### Using command line flags
 
-Add the flags `-h` for your Home-Assistant host and `-b` for your token.
+Add the flags `--host` for your Home-Assistant host and `--bearer` for your token.
 
 ### Examples
 
@@ -68,11 +68,11 @@ Add the flags `-h` for your Home-Assistant host and `-b` for your token.
 
 **Run a command without config file:**
 
-`mqtt-run run -h https://my_hass_url.com -b XXXTOKENXXX shell.my_entity /tmp/my_command.pid -- my_command`
+`mqtt-run run --host https://my_hass_url.com --bearer XXXTOKENXXX shell.my_entity /tmp/my_command.pid -- my_command`
 
 **Run multiple commands:**
 
-`mqtt-run run -h https://my_hass_url.com -b XXXTOKENXXX shell.my_entity /tmp/my_command.pid -- bash -c "my_command_1 && my_command_2"`
+`mqtt-run run --host https://my_hass_url.com --bearer XXXTOKENXXX shell.my_entity /tmp/my_command.pid -- bash -c "my_command_1 && my_command_2"`
 
 **Set Home-Assistant configuration:**
 
@@ -83,7 +83,7 @@ shell_command:
 
 **Kill a running command:**
 
-- `mqtt-run kill -h https://my_hass_url.com -b XXXTOKENXXX shell.my_entity /tmp/my_command.pid`
+- `mqtt-run kill --host https://my_hass_url.com --bearer XXXTOKENXXX shell.my_entity /tmp/my_command.pid`
 - `mqtt-run kill shell.my_entity /tmp/my_command.pid`
 
 
