@@ -22,11 +22,11 @@ duration: 10000
 
 ### Using Docker
 
-- Add this to your Dockerfile 
-- Update the release URL with the version you want
+- Replace `__RELEASE_URL__` by a valid `tar.gz` release archive
+- Add it to your Dockerfile 
 
 ```
-RUN wget -O /tmp/hass-run-release.tar.gz https://github.com/simon-watiau/hass-run/releases/download/v2.0.0/hass-run-v2.0.0-linux-amd64.tar.gz && \
+RUN wget -O /tmp/hass-run-release.tar.gz __RELEASE_URL__.tar.gz && \
   mkdir /tmp/hass-run-release && \
   tar -xzf /tmp/hass-run-release.tar.gz -C /tmp/hass-run-release && \
   cp /tmp/hass-run-release/hass-run /usr/bin && \
@@ -49,7 +49,7 @@ RUN wget -O /tmp/hass-run-release.tar.gz https://github.com/simon-watiau/hass-ru
 ### Configuring host and token
 
 #### Using a configuration file
-Add a `mqtt-run.yaml` in `.`, `$HOME` or `/etc` with your host and token as follow:
+Add a `hass-run.yaml` in `.`, `$HOME` or `/etc` with your host and token as follow:
 
 ```
 host: "https://my_host_assistant_url.com"
@@ -64,27 +64,27 @@ Add the flags `--host` for your Home-Assistant host and `--bearer` for your toke
 
 **Run a command with config file:**
 
-`mqtt-run run shell.my_entity /tmp/my_command.pid -- my_command`
+`hass-run run shell.my_entity /tmp/my_command.pid -- my_command`
 
 **Run a command without config file:**
 
-`mqtt-run run --host https://my_hass_url.com --bearer XXXTOKENXXX shell.my_entity /tmp/my_command.pid -- my_command`
+`hass-run run --host https://my_hass_url.com --bearer XXXTOKENXXX shell.my_entity /tmp/my_command.pid -- my_command`
 
 **Run multiple commands:**
 
-`mqtt-run run --host https://my_hass_url.com --bearer XXXTOKENXXX shell.my_entity /tmp/my_command.pid -- bash -c "my_command_1 && my_command_2"`
+`hass-run run --host https://my_hass_url.com --bearer XXXTOKENXXX shell.my_entity /tmp/my_command.pid -- bash -c "my_command_1 && my_command_2"`
 
 **Set Home-Assistant configuration:**
 
 ```
 shell_command:
-  my_command: mqtt-run run shell.my_command ./my_command.pid -- bash -c "cd / && ls"
+  my_command: hass-run run shell.my_command ./my_command.pid -- bash -c "cd / && ls"
 ```
 
 **Kill a running command:**
 
-- `mqtt-run kill --host https://my_hass_url.com --bearer XXXTOKENXXX shell.my_entity /tmp/my_command.pid`
-- `mqtt-run kill shell.my_entity /tmp/my_command.pid`
+- `hass-run kill --host https://my_hass_url.com --bearer XXXTOKENXXX shell.my_entity /tmp/my_command.pid`
+- `hass-run kill shell.my_entity /tmp/my_command.pid`
 
 
 ## Contributing

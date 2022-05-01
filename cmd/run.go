@@ -5,9 +5,9 @@ import (
 	"log"
 
 	"github.com/sevlyar/go-daemon"
-	"github.com/simon-watiau/mqtt-run/hass"
-	"github.com/simon-watiau/mqtt-run/pid"
-	"github.com/simon-watiau/mqtt-run/runner"
+	"github.com/simon-watiau/hass-run/hass"
+	"github.com/simon-watiau/hass-run/pid"
+	"github.com/simon-watiau/hass-run/runner"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -40,7 +40,7 @@ func init() {
 
 	viper.BindPFlags(runCmd.Flags())
 
-	viper.SetConfigName("mqtt-run")
+	viper.SetConfigName("hass-run")
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath(".")
 	viper.AddConfigPath("$HOME")

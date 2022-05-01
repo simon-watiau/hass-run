@@ -7,7 +7,7 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "mqtt-run",
+	Use:   "hass-run",
 	Short: "Run long commands in homeassistant",
 	Long:  `Execute commands as daemons and update a defined homeassistant entity with the result`,
 }
