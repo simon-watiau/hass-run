@@ -1,3 +1,4 @@
 mqtt-run.yaml
 mqtt-run
 *.pid
+.vscode
